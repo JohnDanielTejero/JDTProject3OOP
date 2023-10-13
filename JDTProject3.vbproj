@@ -16,7 +16,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -24,6 +24,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>JDTProject3.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,6 +80,11 @@
     <Compile Include="AccountForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Caribean_AdventuresDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Caribean_AdventuresDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CustomerData.Designer.vb">
       <DependentUpon>CustomerData.vb</DependentUpon>
     </Compile>
@@ -91,6 +97,8 @@
     <Compile Include="Customers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DAO\ConnectionDb.vb" />
+    <Compile Include="DAO\User.vb" />
     <Compile Include="LoginForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +110,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -153,6 +162,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Caribean_AdventuresDataSet.xsc">
+      <DependentUpon>Caribean_AdventuresDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Caribean_AdventuresDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Caribean_AdventuresDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Caribean_AdventuresDataSet.xss">
+      <DependentUpon>Caribean_AdventuresDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
