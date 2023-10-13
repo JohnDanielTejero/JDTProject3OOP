@@ -22,6 +22,7 @@ Partial Class LoginForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm))
         Me.LoginUsername = New System.Windows.Forms.TextBox()
         Me.LoginPassword = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -34,7 +35,7 @@ Partial Class LoginForm
         'LoginUsername
         '
         Me.LoginUsername.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoginUsername.Location = New System.Drawing.Point(179, 86)
+        Me.LoginUsername.Location = New System.Drawing.Point(206, 68)
         Me.LoginUsername.Name = "LoginUsername"
         Me.LoginUsername.Size = New System.Drawing.Size(205, 29)
         Me.LoginUsername.TabIndex = 0
@@ -42,7 +43,7 @@ Partial Class LoginForm
         'LoginPassword
         '
         Me.LoginPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoginPassword.Location = New System.Drawing.Point(179, 143)
+        Me.LoginPassword.Location = New System.Drawing.Point(206, 125)
         Me.LoginPassword.Name = "LoginPassword"
         Me.LoginPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.LoginPassword.Size = New System.Drawing.Size(205, 29)
@@ -51,8 +52,9 @@ Partial Class LoginForm
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(44, 91)
+        Me.Label1.Location = New System.Drawing.Point(71, 73)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(105, 24)
         Me.Label1.TabIndex = 2
@@ -61,8 +63,9 @@ Partial Class LoginForm
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(49, 143)
+        Me.Label2.Location = New System.Drawing.Point(76, 125)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 24)
         Me.Label2.TabIndex = 3
@@ -71,8 +74,9 @@ Partial Class LoginForm
         'LoginToRegister
         '
         Me.LoginToRegister.AutoSize = True
+        Me.LoginToRegister.BackColor = System.Drawing.Color.Transparent
         Me.LoginToRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoginToRegister.Location = New System.Drawing.Point(176, 175)
+        Me.LoginToRegister.Location = New System.Drawing.Point(203, 157)
         Me.LoginToRegister.Name = "LoginToRegister"
         Me.LoginToRegister.Size = New System.Drawing.Size(196, 16)
         Me.LoginToRegister.TabIndex = 4
@@ -81,7 +85,7 @@ Partial Class LoginForm
         '
         'LoginSubmit
         '
-        Me.LoginSubmit.Location = New System.Drawing.Point(179, 220)
+        Me.LoginSubmit.Location = New System.Drawing.Point(206, 202)
         Me.LoginSubmit.Name = "LoginSubmit"
         Me.LoginSubmit.Size = New System.Drawing.Size(97, 38)
         Me.LoginSubmit.TabIndex = 5
@@ -90,7 +94,7 @@ Partial Class LoginForm
         '
         'LoginCancel
         '
-        Me.LoginCancel.Location = New System.Drawing.Point(282, 220)
+        Me.LoginCancel.Location = New System.Drawing.Point(309, 202)
         Me.LoginCancel.Name = "LoginCancel"
         Me.LoginCancel.Size = New System.Drawing.Size(99, 38)
         Me.LoginCancel.TabIndex = 6
@@ -101,6 +105,8 @@ Partial Class LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(468, 355)
         Me.Controls.Add(Me.LoginCancel)
         Me.Controls.Add(Me.LoginSubmit)
@@ -109,6 +115,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LoginPassword)
         Me.Controls.Add(Me.LoginUsername)
+        Me.DoubleBuffered = True
         Me.Name = "LoginForm"
         Me.Text = "LoginForm"
         Me.ResumeLayout(False)

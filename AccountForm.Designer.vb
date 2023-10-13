@@ -22,6 +22,7 @@ Partial Class AccountForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AccountForm))
         Me.EditAccount = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.RegisterPass = New System.Windows.Forms.TextBox()
@@ -37,7 +38,7 @@ Partial Class AccountForm
         '
         'EditAccount
         '
-        Me.EditAccount.Location = New System.Drawing.Point(213, 183)
+        Me.EditAccount.Location = New System.Drawing.Point(212, 226)
         Me.EditAccount.Name = "EditAccount"
         Me.EditAccount.Size = New System.Drawing.Size(200, 38)
         Me.EditAccount.TabIndex = 3
@@ -47,8 +48,9 @@ Partial Class AccountForm
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(107, 133)
+        Me.Label4.Location = New System.Drawing.Point(106, 176)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(100, 24)
         Me.Label4.TabIndex = 18
@@ -57,7 +59,7 @@ Partial Class AccountForm
         'RegisterPass
         '
         Me.RegisterPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RegisterPass.Location = New System.Drawing.Point(213, 132)
+        Me.RegisterPass.Location = New System.Drawing.Point(212, 175)
         Me.RegisterPass.Name = "RegisterPass"
         Me.RegisterPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.RegisterPass.Size = New System.Drawing.Size(200, 29)
@@ -66,8 +68,9 @@ Partial Class AccountForm
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(47, 49)
+        Me.Label1.Location = New System.Drawing.Point(46, 92)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(160, 24)
         Me.Label1.TabIndex = 17
@@ -76,7 +79,7 @@ Partial Class AccountForm
         'RegisterName
         '
         Me.RegisterName.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RegisterName.Location = New System.Drawing.Point(213, 46)
+        Me.RegisterName.Location = New System.Drawing.Point(212, 89)
         Me.RegisterName.Name = "RegisterName"
         Me.RegisterName.Size = New System.Drawing.Size(200, 29)
         Me.RegisterName.TabIndex = 0
@@ -84,8 +87,9 @@ Partial Class AccountForm
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(102, 91)
+        Me.Label2.Location = New System.Drawing.Point(101, 134)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(105, 24)
         Me.Label2.TabIndex = 19
@@ -94,7 +98,7 @@ Partial Class AccountForm
         'RegisterAddress
         '
         Me.RegisterAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RegisterAddress.Location = New System.Drawing.Point(213, 89)
+        Me.RegisterAddress.Location = New System.Drawing.Point(212, 132)
         Me.RegisterAddress.Name = "RegisterAddress"
         Me.RegisterAddress.Size = New System.Drawing.Size(200, 29)
         Me.RegisterAddress.TabIndex = 1
@@ -104,7 +108,7 @@ Partial Class AccountForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReserveATourToolStripMenuItem, Me.LogoutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(477, 33)
+        Me.MenuStrip1.Size = New System.Drawing.Size(498, 33)
         Me.MenuStrip1.TabIndex = 20
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -126,7 +130,9 @@ Partial Class AccountForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(477, 275)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(498, 395)
         Me.Controls.Add(Me.EditAccount)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
