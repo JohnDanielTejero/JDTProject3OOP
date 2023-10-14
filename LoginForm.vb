@@ -16,6 +16,8 @@
             password = LoginPassword.Text
 
             Dim colList = New List(Of String)
+
+            colList.Add("CustId")
             colList.Add("Username")
             colList.Add("Password")
             colList.Add("Role")
@@ -24,7 +26,14 @@
                 Throw New Exception("No user found!")
             Else
                 If res.Item("Password").Equals(password) Then
-                    Console.WriteLine("TITE")
+                    If res.Item("Role").Equals("ADMIN") Then
+                        Customers.Show()
+                        Me.Hide()
+                    Else
+                        ReserveTourForm.Show()
+                        Me.Hide()
+
+                    End If
                 Else
                     Throw New Exception("Incorrect password!")
                 End If
