@@ -20,10 +20,6 @@
         End Try
     End Sub
 
-    'table = table name
-    'columnName = column names of the table
-    'dataList = data to be inserted on the column
-    'returns TRUE if insertion is successful
     Public Function insert(table As String, columnName As List(Of String), dataList As List(Of Object)) As Boolean
         Dim query = "INSERT INTO " & table & "("
         Dim values = " VALUES ("
@@ -87,7 +83,31 @@
         End Using
         Return data
     End Function
+    Public Function getAllTours() As List(Of Tour)
+        Dim data = New List(Of Tour)
 
+        Using con
+            Dim command As New OleDb.OleDbCommand()
+            command.Connection = con
+            command.CommandText = "SELECT * FROM Tour;"
+            Try
+                con.Open()
+                Dim reader = command.ExecuteReader
+                While reader.Read
+                    Dim tour As New Tour()
+                    tour.TourId = Convert.ToInt32(reader("TourId"))
+                    tour.Destination = reader("DestName").ToString()
+                    tour.Day7Price = Convert.ToDouble(reader("Price7"))
+                    tour.Day14Price = Convert.ToDouble(reader("Price14"))
+                    data.Add(tour)
+                End While
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+                Console.WriteLine("Failed to execute query: " & command.CommandText)
+            End Try
+        End Using
+        Return data
+    End Function
     Public Function getDataFrom(table As String, columns As List(Of String), columnid As String, columndata As Object) As Dictionary(Of String, Object)
         Dim query = "SELECT "
         For i = 0 To columns.Count - 1
@@ -119,8 +139,7 @@
         End Using
         Return data
     End Function
-    'table = table name
-    'gridview = the Data Grid View on the form
+    
     Public Sub getUpdatedTable(table As String, gridview As DataGridView)
         Dim newAdapter As New OleDb.OleDbDataAdapter
         Dim newTable As New DataTable
@@ -144,25 +163,46 @@
             newAdapter.SelectCommand = New OleDb.OleDbCommand("SELECT * FROM " & table & " WHERE " & whereclause, con)
             Console.WriteLine("search query: " & newAdapter.SelectCommand.CommandText)
             newAdapter.Fill(newTable)
+            For Each row As DataRow In newTable.Rows
+                For Each col As DataColumn In newTable.Columns
+                    If row.IsNull(col) Then
+                        row(col) = String.Empty
+                    End If
+                Next
+            Next
             newSource.DataSource = newTable
             gridview.DataSource = newSource
             newAdapter.Update(newTable)
         End Using
     End Sub
 
+    Public Sub ReservationsOfUser(gridview As DataGridView, whereclause As String)
+        Dim newAdapter As New OleDb.OleDbDataAdapter
+        Dim newTable As New DataTable
+        Dim newSource As New BindingSource
 
+        Using con
+            newAdapter.SelectCommand = New OleDb.OleDbCommand("SELECT t.DestName, r.NoOfPax, r.ModeOfPayment, r.DepDate, r.NoOfDays, r.Total FROM Reservations as r INNER JOIN tour as t ON r.TourId = t.TourId WHERE " & whereclause, con)
+            Console.WriteLine("search query: " & newAdapter.SelectCommand.CommandText)
+            newAdapter.Fill(newTable)
+            For Each row As DataRow In newTable.Rows
+                For Each col As DataColumn In newTable.Columns
+                    If row.IsNull(col) Then
+                        row(col) = String.Empty
+                    End If
+                Next
+            Next
+            newSource.DataSource = newTable
+            gridview.DataSource = newSource
+            newAdapter.Update(newTable)
+        End Using
+    End Sub
 
-    'table = table name
-    'id = id value
-    'column = column name to be used in where clause
     Public Function deleteData(table As String, id As Integer, column As String) As Boolean
         Dim query = "DELETE FROM " & table & " WHERE " & column & " = " & id
         Return deleteResult(query)
     End Function
 
-    'table = table name
-    'ids = collection of ids to delete
-    'column = column to be used in where clause
     Public Function deleteData(table As String, ids As Integer(), column As String) As Boolean
         Dim query = "DELETE FROM " & table & " WHERE " & column & " IN ("
         Dim index = 1

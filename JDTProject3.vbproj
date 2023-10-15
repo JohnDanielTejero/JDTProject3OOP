@@ -98,6 +98,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DAO\ConnectionDb.vb" />
+    <Compile Include="DAO\Reservation.vb" />
+    <Compile Include="DAO\Tour.vb" />
     <Compile Include="DAO\User.vb" />
     <Compile Include="LoginForm.vb">
       <SubType>Form</SubType>

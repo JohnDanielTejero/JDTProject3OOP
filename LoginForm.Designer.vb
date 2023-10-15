@@ -78,7 +78,7 @@ Partial Class LoginForm
         Me.LoginToRegister.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LoginToRegister.Location = New System.Drawing.Point(203, 157)
         Me.LoginToRegister.Name = "LoginToRegister"
-        Me.LoginToRegister.Size = New System.Drawing.Size(197, 16)
+        Me.LoginToRegister.Size = New System.Drawing.Size(196, 16)
         Me.LoginToRegister.TabIndex = 4
         Me.LoginToRegister.TabStop = True
         Me.LoginToRegister.Text = "Not Yet Registered? Click Here."
